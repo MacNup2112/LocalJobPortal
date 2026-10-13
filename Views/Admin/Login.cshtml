@@ -1,0 +1,83 @@
+﻿@{
+    ViewData["Title"] = "Admin Login";
+}
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-5">
+
+            <div class="card shadow">
+
+                <div class="card-body p-4">
+
+                    <h2 class="text-center mb-4">
+                        Admin Login
+                    </h2>
+
+                    @if (ViewBag.ErrorMessage != null)
+                    {
+                        <div class="alert alert-danger">
+                            @ViewBag.ErrorMessage
+                        </div>
+                    }
+
+                    <form asp-controller="Admin"
+                          asp-action="Login"
+                          method="post"
+                          autocomplete="off">
+
+                        @Html.AntiForgeryToken()
+
+                        <!-- Username -->
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Username
+                            </label>
+
+                            <input type="text"
+                                   name="username"
+                                   class="form-control"
+                                   autocomplete="off"
+                                   required />
+
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Password
+                            </label>
+
+                            <input type="password"
+                                   name="password"
+                                   class="form-control"
+                                   autocomplete="new-password"
+                                   required />
+
+                        </div>
+
+                        <!-- Login Button -->
+                        <div class="d-grid">
+
+                            <button type="submit"
+                                    class="btn btn-dark">
+                                Login
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

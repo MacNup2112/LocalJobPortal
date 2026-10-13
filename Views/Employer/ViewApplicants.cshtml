@@ -1,0 +1,132 @@
+﻿@model IEnumerable<LocalJobPortal.Models.ApplicantViewModel>
+
+@{
+    ViewData["Title"] = "View Applicants";
+}
+
+<div class="container mt-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <h2>Job Applicants</h2>
+            <p class="text-muted">
+                View applicants who have applied for your jobs.
+            </p>
+        </div>
+
+        <a asp-controller="Employer"
+           asp-action="Dashboard"
+           class="btn btn-secondary">
+            Back to Dashboard
+        </a>
+
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            No applications have been received yet.
+        </div>
+    }
+    else
+    {
+        <div class="row g-4">
+
+            @foreach (var applicant in Model)
+            {
+                <div class="col-md-6">
+
+                    <div class="card shadow h-100">
+
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0">
+                                @applicant.JobTitle
+                            </h5>
+                        </div>
+
+                        <div class="card-body">
+
+                            <p>
+                                <strong>Applicant:</strong>
+                                @applicant.FullName
+                            </p>
+
+                            <p>
+                                <strong>Email:</strong>
+                                @applicant.Email
+                            </p>
+
+                            <p>
+                                <strong>Phone:</strong>
+                                @applicant.Phone
+                            </p>
+
+                            <p>
+                                <strong>Applied On:</strong>
+                                @applicant.AppliedDate.ToString("dd-MM-yyyy")
+                            </p>
+
+                            <p>
+                                <strong>Cover Message:</strong>
+                            </p>
+
+                            <p class="border rounded p-3">
+                                @applicant.CoverMessage
+                            </p>
+
+                            <p>
+                                <strong>Status:</strong>
+
+                                @if (applicant.Status == "Pending")
+                                {
+                                    <span class="badge bg-warning text-dark">
+                                        Pending
+                                    </span>
+                                }
+                                else if (applicant.Status == "Accepted")
+                                {
+                                    <span class="badge bg-success">
+                                        Accepted
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger">
+                                        Rejected
+                                    </span>
+                                }
+                            </p>
+
+                            @if (applicant.Status == "Pending")
+                            {
+                                <div class="d-flex gap-2 mt-3">
+
+                                    <a asp-controller="Employer"
+                                       asp-action="AcceptApplication"
+                                       asp-route-id="@applicant.ApplicationId"
+                                       class="btn btn-success">
+                                        Accept
+                                    </a>
+
+                                    <a asp-controller="Employer"
+                                       asp-action="RejectApplication"
+                                       asp-route-id="@applicant.ApplicationId"
+                                       class="btn btn-danger">
+                                        Reject
+                                    </a>
+
+                                </div>
+                            }
+
+                        </div>
+
+                    </div>
+
+                </div>
+            }
+
+        </div>
+    }
+
+</div>

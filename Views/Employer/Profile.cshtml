@@ -1,0 +1,143 @@
+﻿@model LocalJobPortal.Models.EmployerProfileViewModel
+
+@{
+    ViewData["Title"] = "Company Profile";
+}
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <div class="card shadow">
+
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">Company Profile</h3>
+                </div>
+
+                <div class="card-body">
+
+                    @if (TempData["SuccessMessage"] != null)
+                    {
+                        <div class="alert alert-success">
+                            @TempData["SuccessMessage"]
+                        </div>
+                    }
+
+                    <form asp-action="Profile" method="post">
+
+                        <input type="hidden" asp-for="EmployerId" />
+
+                        <div asp-validation-summary="ModelOnly"
+                             class="text-danger mb-3">
+                        </div>
+
+                        <!-- Company Name -->
+                        <div class="mb-3">
+                            <label asp-for="CompanyName"
+                                   class="form-label">
+                                Company Name
+                            </label>
+
+                            <input asp-for="CompanyName"
+                                   class="form-control" />
+
+                            <span asp-validation-for="CompanyName"
+                                  class="text-danger">
+                            </span>
+                        </div>
+
+                        <!-- Contact Person -->
+                        <div class="mb-3">
+                            <label asp-for="ContactPerson"
+                                   class="form-label">
+                                Contact Person
+                            </label>
+
+                            <input asp-for="ContactPerson"
+                                   class="form-control" />
+
+                            <span asp-validation-for="ContactPerson"
+                                  class="text-danger">
+                            </span>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label asp-for="Email"
+                                   class="form-label">
+                                Email
+                            </label>
+
+                            <input asp-for="Email"
+                                   class="form-control" />
+
+                            <span asp-validation-for="Email"
+                                  class="text-danger">
+                            </span>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="mb-3">
+                            <label asp-for="Phone"
+                                   class="form-label">
+                                Phone
+                            </label>
+
+                            <input asp-for="Phone"
+                                   class="form-control" />
+
+                            <span asp-validation-for="Phone"
+                                  class="text-danger">
+                            </span>
+                        </div>
+
+                        <!-- Location -->
+                        <div class="mb-3">
+                            <label asp-for="Location"
+                                   class="form-label">
+                                Location
+                            </label>
+
+                            <input asp-for="Location"
+                                   class="form-control" />
+
+                            <span asp-validation-for="Location"
+                                  class="text-danger">
+                            </span>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-flex gap-2">
+
+                            <button type="submit"
+                                    class="btn btn-primary">
+                                Save Changes
+                            </button>
+
+                            <a asp-controller="Employer"
+                               asp-action="Dashboard"
+                               class="btn btn-secondary">
+                                Back to Dashboard
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

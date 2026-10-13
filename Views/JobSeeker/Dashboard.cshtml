@@ -1,0 +1,91 @@
+﻿@{
+    ViewData["Title"] = "Job Seeker Dashboard";
+}
+
+<div class="container mt-5">
+
+    <div class="text-center mb-5">
+        <h1>Job Seeker Dashboard</h1>
+        <p class="text-muted">
+            Find local jobs and manage your applications.
+        </p>
+    </div>
+
+    <div class="row g-4">
+
+        <!-- Browse Jobs -->
+        <div class="col-md-4">
+            <div class="card shadow h-100">
+                <div class="card-body text-center">
+
+                    <h4>Browse Jobs</h4>
+
+                    <p class="text-muted">
+                        Search and view available local job opportunities.
+                    </p>
+
+                    <a asp-controller="JobSeeker"
+                       asp-action="BrowseJobs"
+                       class="btn btn-primary">
+                        Browse Jobs
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- My Applications -->
+        <div class="col-md-4">
+            <div class="card shadow h-100">
+                <div class="card-body text-center">
+
+                    <h4>My Applications</h4>
+
+                    <p class="text-muted">
+                        View the jobs you have applied for and their status.
+                    </p>
+
+                    <a asp-controller="JobSeeker"
+                       asp-action="MyApplications"
+                       class="btn btn-success">
+                        My Applications
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile -->
+        <div class="col-md-4">
+            <div class="card shadow h-100">
+                <div class="card-body text-center">
+
+                    <h4>My Profile</h4>
+
+                    <p class="text-muted">
+                        View and update your personal and skill information.
+                    </p>
+
+                    <a asp-controller="JobSeeker"
+                       asp-action="Profile"
+                       class="btn btn-info">
+                        My Profile
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="text-center mt-5">
+
+        <a asp-controller="JobSeeker"
+           asp-action="Logout"
+           class="btn btn-secondary">
+            Logout
+        </a>
+
+    </div>
+
+</div>

@@ -1,0 +1,132 @@
+﻿@model IEnumerable<LocalJobPortal.Models.ManageJobViewModel>
+
+@{
+    ViewData["Title"] = "Manage Jobs";
+}
+
+<div class="container mt-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <h1>Manage Jobs</h1>
+
+            <p class="text-muted">
+                View and manage all jobs posted on the portal.
+            </p>
+        </div>
+
+        <a asp-controller="Admin"
+           asp-action="Dashboard"
+           class="btn btn-secondary">
+            Back to Dashboard
+        </a>
+
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            No jobs have been posted yet.
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+
+            <table class="table table-bordered table-striped shadow-sm">
+
+                <thead class="table-dark">
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Job Title</th>
+                        <th>Location</th>
+                        <th>Job Type</th>
+                        <th>Salary</th>
+                        <th>Required Skills</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    @foreach (var job in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                @job.JobId
+                            </td>
+
+                            <td>
+                                @job.JobTitle
+                            </td>
+
+                            <td>
+                                @job.Location
+                            </td>
+
+                            <td>
+                                @job.JobType
+                            </td>
+
+                            <td>
+                                @job.Salary
+                            </td>
+
+                            <td>
+                                @job.RequiredSkills
+                            </td>
+
+                            <td>
+
+                                @if (job.Status == "Active")
+                                {
+                                    <span class="badge bg-success">
+                                        Active
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">
+                                        @job.Status
+                                    </span>
+                                }
+
+                            </td>
+
+                            <td>
+
+                                @if (job.Status == "Active")
+                                {
+                                    <a asp-controller="Admin"
+                                       asp-action="CloseJob"
+                                       asp-route-id="@job.JobId"
+                                       class="btn btn-warning btn-sm">
+                                        Close
+                                    </a>
+                                }
+
+                                <a asp-controller="Admin"
+                                   asp-action="DeleteJob"
+                                   asp-route-id="@job.JobId"
+                                   class="btn btn-danger btn-sm">
+                                    Delete
+                                </a>
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    }
+
+</div>

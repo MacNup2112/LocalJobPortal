@@ -1,0 +1,121 @@
+﻿@model IEnumerable<LocalJobPortal.Models.ApplicantViewModel>
+
+@{
+    ViewData["Title"] = "View Applications";
+}
+
+<div class="container mt-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <h1>Job Applications</h1>
+
+            <p class="text-muted">
+                View applications submitted by job seekers.
+            </p>
+        </div>
+
+        <a asp-controller="Admin"
+           asp-action="Dashboard"
+           class="btn btn-secondary">
+            Back to Dashboard
+        </a>
+
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            No applications have been submitted yet.
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+
+            <table class="table table-bordered table-striped shadow-sm">
+
+                <thead class="table-dark">
+
+                    <tr>
+                        <th>Application ID</th>
+                        <th>Job</th>
+                        <th>Applicant</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Cover Message</th>
+                        <th>Status</th>
+                        <th>Applied Date</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    @foreach (var application in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                @application.ApplicationId
+                            </td>
+
+                            <td>
+                                @application.JobTitle
+                            </td>
+
+                            <td>
+                                @application.FullName
+                            </td>
+
+                            <td>
+                                @application.Email
+                            </td>
+
+                            <td>
+                                @application.Phone
+                            </td>
+
+                            <td>
+                                @application.CoverMessage
+                            </td>
+
+                            <td>
+
+                                @if (application.Status == "Accepted")
+                                {
+                                    <span class="badge bg-success">
+                                        Accepted
+                                    </span>
+                                }
+                                else if (application.Status == "Rejected")
+                                {
+                                    <span class="badge bg-danger">
+                                        Rejected
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-warning text-dark">
+                                        Pending
+                                    </span>
+                                }
+
+                            </td>
+
+                            <td>
+                                @application.AppliedDate.ToString("dd-MM-yyyy HH:mm")
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    }
+
+</div>

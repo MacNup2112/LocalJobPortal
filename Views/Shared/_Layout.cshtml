@@ -1,0 +1,347 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - Local Job Portal</title>
+
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+
+                <!-- Website Name -->
+               <a class="navbar-brand"
+                 asp-controller="Home"
+                 asp-action="Index">
+                    💼 HireHub
+                </a>
+                <!-- Mobile Menu Button -->
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#mainNavbar"
+                        aria-controls="mainNavbar"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+                <!-- Navigation Links -->
+                <div class="collapse navbar-collapse"
+                     id="mainNavbar">
+
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                        <!-- Home -->
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="Home"
+                               asp-action="Index">
+                                Home
+                            </a>
+                        </li>
+
+                        <!-- Browse Jobs -->
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="JobSeeker"
+                               asp-action="BrowseJobs">
+                                Browse Jobs
+                            </a>
+                        </li>
+
+                        <!-- Job Seeker -->
+                        <li class="nav-item dropdown">
+
+                            <a class="nav-link dropdown-toggle"
+                               href="#"
+                               role="button"
+                               data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                Job Seeker
+                            </a>
+
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="JobSeeker"
+                                       asp-action="Login">
+                                        Login
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="JobSeeker"
+                                       asp-action="Register">
+                                        Register
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <hr class="dropdown-divider" />
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="JobSeeker"
+                                       asp-action="Dashboard">
+                                        Dashboard
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="JobSeeker"
+                                       asp-action="BrowseJobs">
+                                        Browse Jobs
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="JobSeeker"
+                                       asp-action="MyApplications">
+                                        My Applications
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="JobSeeker"
+                                       asp-action="Profile">
+                                        My Profile
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item text-danger"
+                                       asp-controller="JobSeeker"
+                                       asp-action="Logout">
+                                        Logout
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+                        <!-- Employer -->
+                        <li class="nav-item dropdown">
+
+                            <a class="nav-link dropdown-toggle"
+                               href="#"
+                               role="button"
+                               data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                Employer
+                            </a>
+
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="Employer"
+                                       asp-action="Login">
+                                        Login
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="Employer"
+                                       asp-action="Register">
+                                        Register
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <hr class="dropdown-divider" />
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="Employer"
+                                       asp-action="Dashboard">
+                                        Dashboard
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="Employer"
+                                       asp-action="PostJob">
+                                        Post Job
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="Employer"
+                                       asp-action="ManageJobs">
+                                        Manage Jobs
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="Employer"
+                                       asp-action="ViewApplicants">
+                                        View Applicants
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="Employer"
+                                       asp-action="Profile">
+                                        Company Profile
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item text-danger"
+                                       asp-controller="Employer"
+                                       asp-action="Logout">
+                                        Logout
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+                        <!-- Admin -->
+                        <li class="nav-item dropdown">
+
+                            <a class="nav-link dropdown-toggle"
+                               href="#"
+                               role="button"
+                               data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                Admin
+                            </a>
+
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="Admin"
+                                       asp-action="Login">
+                                        Admin Login
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <hr class="dropdown-divider" />
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="Admin"
+                                       asp-action="Dashboard">
+                                        Dashboard
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="Admin"
+                                       asp-action="ViewEmployers">
+                                        View Employers
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="Admin"
+                                       asp-action="ViewJobSeekers">
+                                        View Job Seekers
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="Admin"
+                                       asp-action="ManageJobs">
+                                        Manage Jobs
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item"
+                                       asp-controller="Admin"
+                                       asp-action="ViewApplications">
+                                        View Applications
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item text-danger"
+                                       asp-controller="Admin"
+                                       asp-action="Logout">
+                                        Logout
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <main role="main" class="pb-3">
+
+            @RenderBody()
+
+        </main>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-top footer text-muted mt-5">
+
+        <div class="container text-center py-3">
+
+           &copy; @DateTime.Now.Year - HireHub
+
+        </div>
+
+    </footer>
+
+    <!-- Scripts -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/js/site.js"
+            asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

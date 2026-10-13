@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36310.24 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalJobPortal", "LocalJobPortal.csproj", "{B9CA4C6F-7B37-4B76-98F2-269C9A202334}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9CA4C6F-7B37-4B76-98F2-269C9A202334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9CA4C6F-7B37-4B76-98F2-269C9A202334}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9CA4C6F-7B37-4B76-98F2-269C9A202334}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9CA4C6F-7B37-4B76-98F2-269C9A202334}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {52895906-9ADC-45D0-97FC-5869C3784A47}
+	EndGlobalSection
+EndGlobal

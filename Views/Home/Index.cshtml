@@ -1,0 +1,589 @@
+﻿@{
+    ViewData["Title"] = "Local Job Portal";
+}
+
+<!-- Hero Section -->
+<section class="hero-section">
+
+    <div class="container">
+
+        <div class="row align-items-center min-vh-75">
+
+            <!-- Hero Text -->
+            <div class="col-lg-7">
+
+                <span class="hero-badge">
+                    🚀 Your Career Starts Here
+                </span>
+
+                <h1 class="hero-title mt-3">
+                    Find a Job That
+                    <span>Fits Your Future.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Discover local job opportunities, connect with employers,
+                    apply easily and take the next step in your career.
+                </p>
+
+                <div class="hero-buttons mt-4">
+
+                    <a asp-controller="JobSeeker"
+                       asp-action="BrowseJobs"
+                       class="btn btn-primary btn-lg me-2">
+                        🔍 Browse Jobs
+                    </a>
+
+                    <a asp-controller="JobSeeker"
+                       asp-action="Register"
+                       class="btn btn-outline-dark btn-lg">
+                        Create Account
+                    </a>
+
+                </div>
+
+                <!-- Small Stats -->
+                <div class="row mt-5">
+
+                    <div class="col-4">
+                        <h3 class="fw-bold">100+</h3>
+                        <p class="text-muted mb-0">
+                            Opportunities
+                        </p>
+                    </div>
+
+                    <div class="col-4">
+                        <h3 class="fw-bold">50+</h3>
+                        <p class="text-muted mb-0">
+                            Employers
+                        </p>
+                    </div>
+
+                    <div class="col-4">
+                        <h3 class="fw-bold">500+</h3>
+                        <p class="text-muted mb-0">
+                            Job Seekers
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Hero Visual -->
+            <div class="col-lg-5 mt-5 mt-lg-0">
+
+                <div class="hero-card shadow-lg">
+
+                    <div class="hero-card-top">
+                        <span class="status-dot"></span>
+                        Available Opportunities
+                    </div>
+
+                    <div class="job-preview">
+
+                        <div class="job-icon">
+                            💻
+                        </div>
+
+                        <div>
+                            <h5 class="mb-1">
+                                Software Developer
+                            </h5>
+
+                            <p class="text-muted mb-1">
+                                Technology Company
+                            </p>
+
+                            <small>
+                                📍 Local Area
+                            </small>
+                        </div>
+
+                    </div>
+
+                    <div class="job-preview">
+
+                        <div class="job-icon">
+                            📊
+                        </div>
+
+                        <div>
+                            <h5 class="mb-1">
+                                Business Analyst
+                            </h5>
+
+                            <p class="text-muted mb-1">
+                                Business Solutions
+                            </p>
+
+                            <small>
+                                📍 Local Area
+                            </small>
+                        </div>
+
+                    </div>
+
+                    <div class="job-preview">
+
+                        <div class="job-icon">
+                            🎨
+                        </div>
+
+                        <div>
+                            <h5 class="mb-1">
+                                UI/UX Designer
+                            </h5>
+
+                            <p class="text-muted mb-1">
+                                Creative Studio
+                            </p>
+
+                            <small>
+                                📍 Local Area
+                            </small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Main Options -->
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="section-label">
+                GET STARTED
+            </span>
+
+            <h2 class="section-title">
+                What are you looking for?
+            </h2>
+
+            <p class="text-muted">
+                Whether you're looking for your next opportunity
+                or your next employee, we've got you covered.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <!-- Job Seeker -->
+            <div class="col-lg-6">
+
+                <div class="role-card seeker-card h-100">
+
+                    <div class="role-icon">
+                        👨‍💼
+                    </div>
+
+                    <h3>
+                        I'm Looking for a Job
+                    </h3>
+
+                    <p class="text-muted">
+                        Explore local opportunities, apply for jobs,
+                        track your applications and manage your profile.
+                    </p>
+
+                    <div class="mt-4">
+
+                        <a asp-controller="JobSeeker"
+                           asp-action="BrowseJobs"
+                           class="btn btn-primary me-2">
+                            Find Jobs
+                        </a>
+
+                        <a asp-controller="JobSeeker"
+                           asp-action="Register"
+                           class="btn btn-outline-primary">
+                            Register
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Employer -->
+            <div class="col-lg-6">
+
+                <div class="role-card employer-card h-100">
+
+                    <div class="role-icon">
+                        🏢
+                    </div>
+
+                    <h3>
+                        I'm Hiring
+                    </h3>
+
+                    <p class="text-muted">
+                        Post job opportunities, manage your listings
+                        and find suitable candidates for your company.
+                    </p>
+
+                    <div class="mt-4">
+
+                        <a asp-controller="Employer"
+                           asp-action="Login"
+                           class="btn btn-success me-2">
+                            Employer Login
+                        </a>
+
+                        <a asp-controller="Employer"
+                           asp-action="Register"
+                           class="btn btn-outline-success">
+                            Register
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Features -->
+<section class="features-section py-5">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="section-label">
+                WHY LOCAL JOB PORTAL
+            </span>
+
+            <h2 class="section-title">
+                Everything You Need in One Place
+            </h2>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <!-- Feature 1 -->
+            <div class="col-md-4">
+
+                <div class="feature-card h-100">
+
+                    <div class="feature-icon">
+                        🔎
+                    </div>
+
+                    <h4>
+                        Find Opportunities
+                    </h4>
+
+                    <p class="text-muted">
+                        Browse available jobs and discover
+                        opportunities that match your skills.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Feature 2 -->
+            <div class="col-md-4">
+
+                <div class="feature-card h-100">
+
+                    <div class="feature-icon">
+                        📝
+                    </div>
+
+                    <h4>
+                        Apply Easily
+                    </h4>
+
+                    <p class="text-muted">
+                        Submit applications quickly and
+                        track their status from your account.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Feature 3 -->
+            <div class="col-md-4">
+
+                <div class="feature-card h-100">
+
+                    <div class="feature-icon">
+                        🤝
+                    </div>
+
+                    <h4>
+                        Connect & Grow
+                    </h4>
+
+                    <p class="text-muted">
+                        Connect job seekers with employers
+                        and create new career opportunities.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Call To Action -->
+<section class="cta-section">
+
+    <div class="container">
+
+        <div class="cta-card text-center">
+
+            <h2>
+                Ready to Find Your Next Opportunity?
+            </h2>
+
+            <p>
+                Start exploring jobs and take the next step
+                toward your career goals.
+            </p>
+
+            <a asp-controller="JobSeeker"
+               asp-action="BrowseJobs"
+               class="btn btn-light btn-lg">
+                Explore Jobs →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<style>
+
+    /* Hero */
+
+    .hero-section {
+        background: linear-gradient(135deg, #f8faff 0%, #eef4ff 100%);
+        padding: 60px 0;
+        overflow: hidden;
+    }
+
+    .min-vh-75 {
+        min-height: 70vh;
+    }
+
+    .hero-badge {
+        display: inline-block;
+        background: #e8f0ff;
+        color: #0d6efd;
+        padding: 8px 16px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .hero-title {
+        font-size: 3.7rem;
+        line-height: 1.15;
+        font-weight: 800;
+        color: #172033;
+    }
+
+    .hero-title span {
+        color: #0d6efd;
+    }
+
+    .hero-description {
+        font-size: 1.15rem;
+        color: #667085;
+        max-width: 650px;
+        line-height: 1.7;
+    }
+
+    .hero-card {
+        background: white;
+        border-radius: 20px;
+        padding: 25px;
+    }
+
+    .hero-card-top {
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    .status-dot {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background: #198754;
+        border-radius: 50%;
+        margin-right: 8px;
+    }
+
+    .job-preview {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 18px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .job-preview:last-child {
+        border-bottom: none;
+    }
+
+    .job-icon {
+        width: 50px;
+        height: 50px;
+        background: #eef4ff;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+    }
+
+
+    /* Sections */
+
+    .section-label {
+        color: #0d6efd;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+    .section-title {
+        font-weight: 750;
+        margin-top: 8px;
+    }
+
+
+    /* Role Cards */
+
+    .role-card {
+        background: white;
+        border-radius: 18px;
+        padding: 35px;
+        border: 1px solid #e9ecef;
+        transition: all 0.3s ease;
+    }
+
+    .role-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    }
+
+    .role-icon {
+        width: 65px;
+        height: 65px;
+        border-radius: 16px;
+        background: #eef4ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+
+    /* Features */
+
+    .features-section {
+        background: #f8f9fa;
+    }
+
+    .feature-card {
+        background: white;
+        border-radius: 16px;
+        padding: 30px;
+        text-align: center;
+        border: 1px solid #e9ecef;
+        transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+    }
+
+    .feature-icon {
+        font-size: 40px;
+        margin-bottom: 18px;
+    }
+
+
+    /* CTA */
+
+    .cta-section {
+        padding: 70px 0;
+    }
+
+    .cta-card {
+        background: linear-gradient(135deg, #0d6efd, #084298);
+        color: white;
+        border-radius: 22px;
+        padding: 60px 30px;
+    }
+
+    .cta-card h2 {
+        font-weight: 750;
+    }
+
+    .cta-card p {
+        opacity: 0.9;
+        margin: 15px auto 25px;
+    }
+
+
+    /* Responsive */
+
+    @@media (max-width: 768px) {
+
+        .hero-title {
+            font-size: 2.6rem;
+        }
+
+        .hero-section {
+            padding: 40px 0;
+        }
+
+        .hero-buttons .btn {
+            margin-bottom: 10px;
+        }
+
+    }
+
+</style>

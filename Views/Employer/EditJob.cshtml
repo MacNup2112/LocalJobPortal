@@ -1,0 +1,195 @@
+﻿@model LocalJobPortal.Models.EditJobViewModel
+
+@{
+    ViewData["Title"] = "Edit Job";
+}
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <div class="card shadow">
+
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">Edit Job</h3>
+                </div>
+
+                <div class="card-body">
+
+                    <form asp-action="EditJob" method="post">
+
+                        <input type="hidden" asp-for="JobId" />
+
+                        <div asp-validation-summary="ModelOnly"
+                             class="text-danger mb-3">
+                        </div>
+
+                        <!-- Job Title -->
+                        <div class="mb-3">
+
+                            <label asp-for="JobTitle"
+                                   class="form-label">
+                                Job Title
+                            </label>
+
+                            <input asp-for="JobTitle"
+                                   class="form-control"
+                                   placeholder="Example: Software Developer" />
+
+                            <span asp-validation-for="JobTitle"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+                        <!-- Location -->
+                        <div class="mb-3">
+
+                            <label asp-for="Location"
+                                   class="form-label">
+                                Location
+                            </label>
+
+                            <input asp-for="Location"
+                                   class="form-control"
+                                   placeholder="Example: Pune" />
+
+                            <span asp-validation-for="Location"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+                        <!-- Job Type -->
+                        <div class="mb-3">
+
+                            <label asp-for="JobType"
+                                   class="form-label">
+                                Job Type
+                            </label>
+
+                            <select asp-for="JobType"
+                                    class="form-select">
+
+                                <option value="">
+                                    -- Select Job Type --
+                                </option>
+
+                                <option value="Full Time">
+                                    Full Time
+                                </option>
+
+                                <option value="Part Time">
+                                    Part Time
+                                </option>
+
+                                <option value="Internship">
+                                    Internship
+                                </option>
+
+                                <option value="Contract">
+                                    Contract
+                                </option>
+
+                                <option value="Work From Home">
+                                    Work From Home
+                                </option>
+
+                            </select>
+
+                            <span asp-validation-for="JobType"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+                        <!-- Salary -->
+                        <div class="mb-3">
+
+                            <label asp-for="Salary"
+                                   class="form-label">
+                                Salary
+                            </label>
+
+                            <input asp-for="Salary"
+                                   class="form-control"
+                                   placeholder="Example: ₹25,000 - ₹40,000 per month" />
+
+                            <span asp-validation-for="Salary"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+                        <!-- Required Skills -->
+                        <div class="mb-3">
+
+                            <label asp-for="RequiredSkills"
+                                   class="form-label">
+                                Required Skills
+                            </label>
+
+                            <input asp-for="RequiredSkills"
+                                   class="form-control"
+                                   placeholder="Example: C#, ASP.NET Core, MySQL" />
+
+                            <span asp-validation-for="RequiredSkills"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+                        <!-- Job Description -->
+                        <div class="mb-3">
+
+                            <label asp-for="JobDescription"
+                                   class="form-label">
+                                Job Description
+                            </label>
+
+                            <textarea asp-for="JobDescription"
+                                      class="form-control"
+                                      rows="6"
+                                      placeholder="Enter job description and responsibilities"></textarea>
+
+                            <span asp-validation-for="JobDescription"
+                                  class="text-danger">
+                            </span>
+
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-flex gap-2">
+
+                            <button type="submit"
+                                    class="btn btn-primary">
+                                Save Changes
+                            </button>
+
+                            <a asp-controller="Employer"
+                               asp-action="ManageJobs"
+                               class="btn btn-secondary">
+                                Cancel
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

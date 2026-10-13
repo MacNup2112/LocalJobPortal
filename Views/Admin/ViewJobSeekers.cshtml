@@ -1,0 +1,70 @@
+﻿@model IEnumerable<LocalJobPortal.Models.JobSeeker>
+
+@{
+    ViewData["Title"] = "View Job Seekers";
+}
+
+<div class="container mt-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <h1>Registered Job Seekers</h1>
+            <p class="text-muted">
+                View all job seekers registered on the portal.
+            </p>
+        </div>
+
+        <a asp-controller="Admin"
+           asp-action="Dashboard"
+           class="btn btn-secondary">
+            Back to Dashboard
+        </a>
+
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            No job seekers are registered yet.
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+
+            <table class="table table-bordered table-striped shadow-sm">
+
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Location</th>
+                        <th>Skills</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var jobSeeker in Model)
+                    {
+                        <tr>
+                            <td>@jobSeeker.JobSeekerId</td>
+                            <td>@jobSeeker.FullName</td>
+                            <td>@jobSeeker.Email</td>
+                            <td>@jobSeeker.Phone</td>
+                            <td>@jobSeeker.Location</td>
+                            <td>@jobSeeker.Skills</td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    }
+
+</div>

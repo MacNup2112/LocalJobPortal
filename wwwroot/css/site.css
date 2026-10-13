@@ -1,0 +1,99 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #f8f9fa;
+}
+
+/* Navigation */
+
+.navbar-brand {
+    font-weight: 600;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
+}
+
+/* Cards */
+
+.card {
+    border: none;
+    border-radius: 12px;
+}
+
+.card-title {
+    font-weight: 600;
+}
+
+/* Buttons */
+
+.btn {
+    border-radius: 6px;
+}
+
+/* Tables */
+
+.table {
+    background-color: white;
+}
+
+    .table th {
+        vertical-align: middle;
+    }
+
+    .table td {
+        vertical-align: middle;
+    }
+
+/* Page headings */
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 600;
+}
+
+/* Footer */
+
+.footer {
+    background-color: #ffffff;
+}
+
+/* Forms */
+
+.form-control,
+.form-select {
+    border-radius: 6px;
+}
+
+    .form-control:focus,
+    .form-select:focus {
+        box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+    }
+
+/* Alerts */
+
+.alert {
+    border-radius: 8px;
+}
+
+/* Badges */
+
+.badge {
+    font-size: 0.85rem;
+}

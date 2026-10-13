@@ -1,0 +1,132 @@
+﻿@model LocalJobPortal.Models.Job
+
+@{
+    ViewData["Title"] = "Job Details";
+    var remaining = Math.Max(0, Model.TotalVacancies - Model.FilledVacancies);
+}
+
+<div class="container mt-5">
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+
+    <div class="card shadow">
+
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">@Model.JobTitle</h3>
+        </div>
+
+        <div class="card-body">
+
+            <p>
+                <strong>Location:</strong>
+                @Model.Location
+            </p>
+
+            <p>
+                <strong>Job Type:</strong>
+                @Model.JobType
+            </p>
+
+            <p>
+                <strong>Salary:</strong>
+                @Model.Salary
+            </p>
+
+            <p>
+                <strong>Required Skills:</strong>
+                @Model.RequiredSkills
+            </p>
+
+            <hr />
+
+            <h5>Job Description</h5>
+
+            <p>@Model.JobDescription</p>
+
+            <hr />
+
+            <h5>Vacancy Details</h5>
+
+            <div class="row text-center g-3 mb-4">
+
+                <div class="col-md-4">
+                    <div class="border rounded p-3 h-100">
+                        <h3 class="text-primary">@Model.TotalVacancies</h3>
+                        <span>Total Vacancies</span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="border rounded p-3 h-100">
+                        <h3 class="text-warning">@Model.FilledVacancies</h3>
+                        <span>Filled Vacancies</span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="border rounded p-3 h-100">
+                        <h3 class="@(remaining > 0 ? "text-success" : "text-danger")">
+                            @remaining
+                        </h3>
+                        <span>Remaining Vacancies</span>
+                    </div>
+                </div>
+
+            </div>
+
+            @if (Model.Status != "Active" || remaining <= 0)
+            {
+                <div class="alert alert-warning">
+                    @if (Model.Status != "Active")
+                    {
+                        <span>This job posting is closed. Applications are not available.</span>
+                    }
+                    else
+                    {
+                        <span>All vacancies for this job have been filled. Applications are not available.</span>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-success">
+                    This job is accepting applications.
+                </div>
+            }
+
+            <div class="mt-4 d-flex flex-wrap gap-2">
+
+                <a asp-controller="JobSeeker"
+                   asp-action="BrowseJobs"
+                   class="btn btn-secondary">
+                    Back to Jobs
+                </a>
+
+                @if (Model.Status == "Active" && remaining > 0)
+                {
+                    <a asp-controller="JobSeeker"
+                       asp-action="ApplyJob"
+                       asp-route-id="@Model.JobId"
+                       class="btn btn-success">
+                        Apply for Job
+                    </a>
+                }
+                else
+                {
+                    <button type="button"
+                            class="btn btn-secondary"
+                            disabled>
+                        Applications Closed
+                    </button>
+                }
+
+            </div>
+
+        </div>
+    </div>
+</div>
